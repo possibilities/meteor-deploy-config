@@ -6,4 +6,4 @@ Sometimes a new instance of an app needs to be configured before it's useful. Th
 
   1) A smart package that provides an AppConfig key/value store that's backed by mongo.
   
-  2) A command line app that prompts for each unsatisfied value (from step 1) and communicates them back to the deployed app (yes, over DDP!).
+  2) A command line app that prompts for each unsatisfied value and communicates them back to the deployed app (yes, over DDP!).
