@@ -4,8 +4,14 @@ var DDPClient, ddpclient;
 var program = require('commander');
 var _ = require('underscore');
 
+program
+  .version('0.0.1')
+  .option('-h, --host <host>', 'specify the server [yourapp.meteor.com]', 'localhost')
+  .option('-p, --port <port>', 'specify the server [3333]', Number, 80)
+  .parse(process.argv);
+
 DDPClient = require('ddpclient');
-ddpclient = new DDPClient("localhost", 3000);
+ddpclient = new DDPClient(program.host, program.port);
 
 ddpclient.connect();
 

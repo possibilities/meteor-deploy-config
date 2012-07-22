@@ -20,8 +20,8 @@ Start by fetching values from the `AppConfig` key/value store. If the value is a
 
 When you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from `AppConfig`. These values will be sent to the server, saved in `AppConfig` and their callbacks will be invoked:
 
-    mconfig --server=http://localhost:3000
+    mconfig --host=localhost --port=3000
 
 ## TODO
 
-We're hardcoding the server address, don't do that!
+Prefer https
