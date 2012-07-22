@@ -4,7 +4,7 @@
 
 ## What's it for?
 
-Sometimes a new instance of an app needs to be configured before it's useful. The package takes a simple approach to solving that problem. There are two components
+Sometimes a new instance of an app needs to be configured before it's useful. The package takes a simple approach to solving that problem. There are two components:
 
   1) A smart package that provides an AppConfig key/value store that's backed by mongo.
   
