@@ -18,7 +18,7 @@ Start by fetching values from the AppConfig key/value store. If it's there the c
       Meteor.accounts.google.setSecret(secret);
     });
 
-When you deploy your app run the command line utility and you'll be prompted for any values that your app keeps in AppConfig. These values will be sent to the server and their callbacks will be invoked:
+When you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from AppConfig. These values will be sent to the server, saved in AppConfig and their callbacks will be invoked:
 
     mconfig --server=http://localhost:3000
 
