@@ -1,6 +1,6 @@
-{ "name": "meteor-app-config"
+{ "name": "meteor-deploy-config"
 , "version": "0.0.1"
-, "homepage": "http://possibilities.github.com/meteor-app-config"
+, "homepage": "http://possibilities.github.com/meteor-deploy-config"
 , "engines": [ "node >=0.6.0" ]
 , "description": "Trix for managing deployment configurations"
 , "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)"
@@ -11,7 +11,7 @@
   }
 , "repository":
   { "type" : "git"
-  , "url" : "https://github.com/possibilities/meteor-app-config.git"
+  , "url" : "https://github.com/possibilities/meteor-deploy-config.git"
   }
-, "bin": { "mconfig" : "./bin/mconfig.js" }
+, "bin": { "mcfg" : "./bin/mcfg.js" }
 }
