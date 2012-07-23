@@ -32,7 +32,7 @@ When you deploy your app run the command line utility and you'll be prompted for
 
 ## Security?
 
-The only security in place is that `mcfg` can only update an `AppConfig` value once. So while it isn't completely secure you can minimize window of opportunity by running `mcfg` immediately
+The only security in place is that `mcfg` can only update an `AppConfig` value once. So while it isn't completely secure you can limit the window of opportunity by running `mcfg` immediately
 
     meteor deploy cool-app && mcfg -h cool-app.meteor.com
 
