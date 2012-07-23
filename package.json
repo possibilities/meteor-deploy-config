@@ -2,7 +2,7 @@
 , "version": "0.0.1"
 , "homepage": "http://possibilities.github.com/meteor-deploy-config"
 , "engines": [ "node >=0.6.0" ]
-, "description": "Trix for managing deployment configurations"
+, "description": "Trix for managing Meteor deployment configurations"
 , "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)"
 , "dependencies":
   { "ddpclient": ">=0.6.0"

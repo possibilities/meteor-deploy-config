@@ -1,6 +1,6 @@
-# App Config
+# Deploy Config
 
-*Trix for managing deployment configurations*
+*Trix for managing Meteor deployment configurations*
 
 ## What's it for?
 
