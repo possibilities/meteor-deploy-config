@@ -6,9 +6,17 @@
 
 Sometimes a new instance of an app needs to be configured before it's useful. This library takes a simple approach to solving that problem. There are two components:
 
-  1) A smart package that provides an `DeployConfig` key/value store that's backed by Mongo.
+  1) A smart package that provides a `DeployConfig` key/value store that's backed by Mongo.
   
   2) A command line app that prompts for each unsatisfied value and communicates them back to the deployed app (yes, over DDP!).
+
+## Installation
+
+  1) Until there's a better way to install smart packages use [meteorite](http://possibilities.github.com/meteorite/)
+
+  2) Install `mcfg` using npm
+
+      npm install -g meteor-deploy-config
 
 ## How do I use it?
 
@@ -22,13 +30,11 @@ When you deploy your app run the command line utility and you'll be prompted for
 
     mcfg --host=localhost --port=3000
 
-## Installation
+## Security?
 
-  1) Until there's a better way to install smart packages use [meteorite](http://possibilities.github.com/meteorite/)
+The only security in place is that `mcfg` can only update an `AppConfig` value once. So while it isn't completely secure you can minimize window of opportunity by running `mcfg` immediately
 
-  2) Install `mcfg` using npm
-  
-      npm install -g meteor-deploy-config
+    meteor deploy cool-app && mcfg -h cool-app.meteor.com
 
 ## TODO
 
