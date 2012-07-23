@@ -32,4 +32,4 @@ When you deploy your app run the command line utility and you'll be prompted for
 
 ## TODO
 
-Prefer https
+Figure out ddp over ssl
