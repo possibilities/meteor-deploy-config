@@ -22,6 +22,14 @@ When you deploy your app run the command line utility and you'll be prompted for
 
     mcfg --host=localhost --port=3000
 
+## Installation
+
+  1) Until there's a better way to install smart packages use [meteorite](http://possibilities.github.com/meteorite/)
+
+  2) Install `mcfg` using npm
+  
+      npm install -g meteor-deploy-config
+
 ## TODO
 
 Prefer https
