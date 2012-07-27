@@ -1,5 +1,5 @@
 { "name": "meteor-deploy-config"
-, "version": "0.0.2"
+, "version": "0.0.3"
 , "homepage": "http://possibilities.github.com/meteor-deploy-config"
 , "engines": [ "node >=0.6.0" ]
 , "description": "Trix for managing Meteor deployment configurations"
