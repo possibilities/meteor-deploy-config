@@ -28,7 +28,7 @@ Start by fetching values from the `DeployConfig` key/value store. If the value i
 
 After you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from `DeployConfig`. These values will be sent to the server, saved in `DeployConfig` and their callbacks will be invoked:
 
-    mcfg --hostname=cool-domain.com --port=3333
+    mcfg --hostname cool-domain.com --port 3333
 
 ## Security recommendations
 
