@@ -5,12 +5,19 @@ var program = require('commander');
 var _ = require('underscore');
 
 program
-  .option('-h, --hostname <host>', 'specify the server [yourapp.meteor.com]', 'localhost')
-  .option('-p, --port <port>', 'specify the server [3333]', Number, 80)
+  .option('-h, --hostname <hostname>', 'specify the server [yourapp.meteor.com]', 'localhost')
+  .option('-p, --port <port>', 'specify the server [3333]', Number, 3333)
   .parse(process.argv);
+
+program.use_ssl = (program.port === 443) ? true : false;
 
 DDPClient = require('ddpclient');
 ddpclient = new DDPClient(program);
+
+ddpclient.on("connect-error", function(data) {
+  console.log("An error occured connecting to '" + ddpclient.socket_url + "'");
+  process.exit();
+});
 
 ddpclient.connect();
 
@@ -27,6 +34,7 @@ ddpclient.on("connect", function(data) {
       memo[key] = key + ': ';
       return memo;
     }, {});
+
     program.prompt(promptValues, function(values) {
       ddpclient.on("msg-result-setKeys", function(data) {
         console.log("Done!");

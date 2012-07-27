@@ -26,16 +26,18 @@ Start by fetching values from the `DeployConfig` key/value store. If the value i
       Meteor.accounts.google.setSecret(secret);
     });
 
-When you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from `DeployConfig`. These values will be sent to the server, saved in `DeployConfig` and their callbacks will be invoked:
+After you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from `DeployConfig`. These values will be sent to the server, saved in `DeployConfig` and their callbacks will be invoked:
 
-    mcfg --host=localhost --port=3000
+    mcfg --hostname=cool-domain.com --port=3333
 
-## Security?
+## Security recommendations
 
-The only security in place is that `mcfg` can only update an `AppConfig` value once. So while it isn't completely secure you can limit the window of opportunity by running `mcfg` immediately
+This package has no *real* security features of it's own. When you deploy an app that contains calls to `DeployConfig.get()` any `ddp` client can connect to it and set any unsatisfied values but after they are set they cannot be set again. Potentially I'll add authentication but I think for now this security-by-first-come-first-served is good enough for most environments. I recommend:
 
-    meteor deploy cool-app && mcfg -h cool-app.meteor.com
+  * Do everything over SSL! When you specify port 443 `mcfg` will use the wss:// protocol.
 
-## TODO
+  * If you need better security than this please help me add it!
 
-Figure out ddp over ssl
+  * For most environments running `mcfg` immediately after you deploy will be Secure Enough™
+
+        meteor deploy cool-app && mcfg -h cool-app.meteor.com -p 443
