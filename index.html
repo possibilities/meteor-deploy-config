@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Meteor Deploy Config by possibilities</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Meteor Deploy Config</h1>
+        <p>Trix for managing Meteor deployment configurations</p>
+        <p class="view"><a href="https://github.com/possibilities/meteor-deploy-config">View the Project on GitHub <small>possibilities/meteor-deploy-config</small></a></p>
+        <ul>
+          <li><a href="https://github.com/possibilities/meteor-deploy-config/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/possibilities/meteor-deploy-config/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/possibilities/meteor-deploy-config">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>What's it for?</h2>
+
+<p>Sometimes a new instance of an app needs to be configured before it's useful. This library takes a simple approach to solving that problem. There are two components:</p>
+
+<p>1) A smart package that provides a <code>DeployConfig</code> key/value store that's backed by Mongo.</p>
+
+<p>2) A command line app that prompts for each unsatisfied value and communicates them back to the deployed app (yes, over DDP!).</p>
+
+<h2>Installation</h2>
+
+<p>1) Until there's a better way to install smart packages use <a href="http://possibilities.github.com/meteorite/">meteorite</a></p>
+
+<p>2) Install <code>mcfg</code> using npm</p>
+
+<pre><code>  npm install -g meteor-deploy-config
+</code></pre>
+
+<h2>How do I use it?</h2>
+
+<p>Start by fetching values from the <code>DeployConfig</code> key/value store. If the value is already in <code>DeployConfig</code> the callback gets called right away:</p>
+
+<pre><code>DeployConfig.get('googleSecret', function(secret) {
+  Meteor.accounts.google.setSecret(secret);
+});
+</code></pre>
+
+<p>After you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from <code>DeployConfig</code>. These values will be sent to the server, saved in <code>DeployConfig</code> and their callbacks will be invoked:</p>
+
+<pre><code>mcfg --hostname cool-domain.com --port 3333
+</code></pre>
+
+<h2>Security recommendations</h2>
+
+<p>This package has no <em>real</em> security features of it's own. When you deploy an app that contains calls to <code>DeployConfig.get()</code> any <code>ddp</code> client can connect to it and set any unsatisfied values but after they are set they cannot be set again. Potentially I'll add authentication but I think for now this security-by-first-come-first-served is good enough for most environments. I recommend:</p>
+
+<ul>
+<li><p>Do everything over SSL! When you specify port 443 <code>mcfg</code> will use the wss:// protocol.</p></li>
+<li><p>If you need better security than this please help me add it!</p></li>
+<li>
+<p>For most environments running <code>mcfg</code> immediately after you deploy will be Secure Enough™</p>
+
+<pre><code>meteor deploy cool-app &amp;&amp; mcfg -h cool-app.meteor.com -p 443
+</code></pre>
+</li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/possibilities">possibilities</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-33060395-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
