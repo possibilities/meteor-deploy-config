@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var DDPClient, ddpclient;
+var DDPClient = require('ddpclient');
 var program = require('commander');
 var _ = require('underscore');
 
@@ -11,8 +11,7 @@ program
 
 program.use_ssl = (program.port === 443) ? true : false;
 
-DDPClient = require('ddpclient');
-ddpclient = new DDPClient(program);
+var ddpclient = new DDPClient(program);
 
 ddpclient.on("connect-error", function(data) {
   console.log("An error occured connecting to '" + ddpclient.socket_url + "'");
