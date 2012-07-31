@@ -1,0 +1,6 @@
+{
+  "name": "deploy-config",
+  "description": "Trix for managing Meteor deployment configurations",
+  "version": "0.0.3",
+  "git": "https://github.com/possibilities/meteor-deploy-config.git"
+}
