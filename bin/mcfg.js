@@ -5,7 +5,7 @@ var program = require('commander');
 var _ = require('underscore');
 
 program
-  .option('-h, --hostname <hostname>', 'specify the server [yourapp.meteor.com]', 'localhost')
+  .option('-h, --hostname <hostname>', 'specify the server [localhost]', 'localhost')
   .option('-p, --port <port>', 'specify the server [3333]', Number, 3333)
   .parse(process.argv);
 
