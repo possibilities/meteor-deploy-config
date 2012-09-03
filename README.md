@@ -12,7 +12,7 @@ Sometimes a new instance of an app needs to be configured before it's useful. Th
 
 ## Installation
 
-  1) Install smart package into your app with [Meteorite](http://possibilities.github.com/meteorite/) (or your preferred method)
+  1) Install the smart package into your app with [Meteorite](http://possibilities.github.com/meteorite/) (or your preferred method)
   
       mrt add deploy-config
 
