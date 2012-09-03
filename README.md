@@ -12,7 +12,9 @@ Sometimes a new instance of an app needs to be configured before it's useful. Th
 
 ## Installation
 
-  1) Until there's a better way to install smart packages use [meteorite](http://possibilities.github.com/meteorite/)
+  1) Install smart package with [Meteorite](http://possibilities.github.com/meteorite/) (or your preferred method)
+  
+      mrt add deploy-config
 
   2) Install `mcfg` using npm
 
@@ -24,6 +26,14 @@ Start by fetching values from the `DeployConfig` key/value store. If the value i
 
     DeployConfig.get('googleSecret', function(secret) {
       Meteor.accounts.google.setSecret(secret);
+    });
+
+Or
+
+TODO: implement this!
+
+    DeployConfig.get('secret1', 'secret2', 'secret3', function(secret1, secret2, secret3) {
+      console.log(secret1, secret2, secret3);
     });
 
 After you deploy your app run the command line utility and you'll be prompted for any values that your app needs to get from `DeployConfig`. These values will be sent to the server, saved in `DeployConfig` and their callbacks will be invoked:
